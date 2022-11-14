@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS sightings CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    email TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
 );
 
@@ -24,5 +24,5 @@ INSERT INTO users (
 ) VALUES (
     'Frank Ozzy',
     'frank@example.com',
-    'snake'
+    '$2b$05$BlvnFN0cm.J678NbEu7neOdesrfy.zkN1V.7.FvKHGTxxbQaFbzg2'
 );
