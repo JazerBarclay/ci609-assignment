@@ -1,10 +1,14 @@
 const { verify } = require('jsonwebtoken');
 
 module.exports = {
+
+    // Validate token from request
     validateToken: (req, res, next) => {
+
         // Get token from header
         let token = req.headers.authorization;
         
+        // Check token is set
         if (!token) return res.status(401).json({ error: 'missing token' });
 
         // Remove 'Bearer ' string before key
@@ -21,6 +25,9 @@ module.exports = {
 
             // Go to next
             return next();
+
         });
-    }
+        
+    },
+
 };
