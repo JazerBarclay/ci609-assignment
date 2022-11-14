@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
 const credentials = {
-    host: 'jb2139.brighton.domains',
-    user: 'jb2139',
-    password: '146SBl#O[mza5V',
-    database: 'jb2139_ci609-api'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'user',
+    password: process.env.DB_PASSWORD || 'password',
+    database: process.env.DB_NAME || 'db'
 };
 
 async function query(sql, params) {
