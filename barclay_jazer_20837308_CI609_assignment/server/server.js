@@ -23,24 +23,26 @@ app.use(logger('common', {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const apiRoot = process.env.NODE_ENV === 'production' ? "/ci609/api" : "";
+
 // Add signup route
 const signupRouter = require('./routes/signup/signupRouter');
-app.use('/signup', signupRouter);
+app.use(`${apiRoot}/signup`, signupRouter);
 
 // Add login route
 const loginRouter = require('./routes/login/loginRouter');
-app.use('/login', loginRouter);
+app.use(`${apiRoot}/login`, loginRouter);
 
 // Add user route
 const userRouter = require('./routes/users/userRouter');
-app.use('/users', userRouter);
+app.use(`${apiRoot}/users`, userRouter);
 
 // Add sightings
 const sightingsRouter = require('./routes/sightings/sightingRouter');
-app.use('/sightings', sightingsRouter);
+app.use(`${apiRoot}/sightings`, sightingsRouter);
 
 // Add default route
-app.get('/', (req, res) => {
+app.get(`${apiRoot}/`, (req, res) => {
     res.status(200).end();
 });
 

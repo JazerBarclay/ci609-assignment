@@ -4,8 +4,8 @@
   "description": "API endpoint for zap app",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
+    "start": "NODE_ENV=production node server",
+    "dev": "NODE_ENV=development nodemon server",
     "lint": "eslint .  --ext .js",
     "lint-fix": "eslint --fix . --ext .js"
   },
